@@ -3,14 +3,35 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:level_up/constants/styles.dart';
 import 'package:level_up/modules/home/presentation/widgets/carousel_preview.dart';
+import 'package:level_up/network.dart';
 
 @RoutePage()
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
   @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  dynamic someGames = [];
+
+  grabSomeGames() async {
+    var games = await Network()
+        .get(endpoint: '/games?key=0791e1a4b0f04440ab7329b0276f80a5');
+
+    print(games);
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    const cardSpacing = 10.0;
+    grabSomeGames();
     return const Scaffold(
         body: SafeArea(
       child: Padding(
