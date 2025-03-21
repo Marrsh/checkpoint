@@ -1,13 +1,13 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:level_up/api_key.dart';
 
 const baseUrl = "https://api.rawg.io/api";
 
 const Map<String, String> defaultHeaders = {
   'Accept': 'application/json',
-  'key': '0791e1a4b0f04440ab7329b0276f80a5',
+  'key': rawGKey,
 };
 
 class Network {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:level_up/modules/home/presentation/widgets/game_card.dart';
+import 'package:level_up/features/home/widgets/game_card.dart';
 
 class CarouselPreview extends StatelessWidget {
   final double? cardSpacing;

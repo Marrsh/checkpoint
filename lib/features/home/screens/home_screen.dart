@@ -1,8 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:level_up/api_key.dart';
 import 'package:level_up/constants/styles.dart';
-import 'package:level_up/modules/home/presentation/widgets/carousel_preview.dart';
+import 'package:level_up/features/home/presentation/widgets/carousel_preview.dart';
 import 'package:level_up/network.dart';
 
 @RoutePage()
@@ -17,8 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
   dynamic someGames = [];
 
   grabSomeGames() async {
-    var games = await Network()
-        .get(endpoint: '/games?key=0791e1a4b0f04440ab7329b0276f80a5');
+    var games = await Network().get(endpoint: '/games?key=$rawGKey');
 
     print(games);
   }

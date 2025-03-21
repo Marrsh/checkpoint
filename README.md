@@ -4,13 +4,42 @@ A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+installation instructions here
+``` 
+flutter pub get
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+
+## File structure
+
+These are the main 3 folders we will be using:
+
+***Data*** (domain/data layer) is for models and repositories
+
+***Bloc*** is for storing bloc operations at the very top level
+
+***Features*** (presentation layer) are purely for UI screens and widgets 
+
+
+
+lib
+  ├── data
+  │   ├── models
+  │   │   └── x_model.dart
+  │   └── repositories
+  │       └── x_repository.dart
+  ├── bloc
+  │   └── x_bloc
+  │       ├── x_bloc.dart
+  │       ├── x_event.dart
+  │       └── x_state.dart
+  └── features
+      └── x
+          ├── screens
+          │   └── home_screen.dart
+          └── widgets
+          └── preview_card.dart
+
