@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:level_up/bloc/auth/auth_bloc.dart';
 import 'package:level_up/bloc/games/games_bloc.dart';
+import 'package:level_up/bloc/loading_status.dart';
 import 'package:level_up/constants/styles.dart';
 import 'package:level_up/data/repositories/auth_repository.dart';
 import 'package:level_up/features/home/widgets/carousel_preview.dart';
@@ -28,31 +29,43 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-        body: SafeArea(
-            child: Padding(
-      padding: EdgeInsets.all(Styles.generalPadding),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            'Level up',
-          ),
-          Text(
-            'Featured',
-            style: TextStyle(fontSize: 20),
-            textAlign: TextAlign.left,
-          ),
-          CarouselPreview(),
-          Text(
-            'Genres',
-            style: TextStyle(fontSize: 20),
-            textAlign: TextAlign.left,
-          ),
-          CarouselPreview(),
-          Spacer()
-        ],
-      ),
+    return Scaffold(body: SafeArea(child: BlocBuilder<AuthBloc, AuthState>(
+      builder: (context, state) {
+        if (state.loadingStatus == LoadingStatus.loaded) {
+          return const Padding(
+            padding: EdgeInsets.all(Styles.generalPadding),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Center(
+                  child: Text(
+                    'Level up',
+                    style: TextStyle(fontSize: 24),
+                  ),
+                ),
+                Text(
+                  'Featured',
+                  style: TextStyle(fontSize: 20),
+                  textAlign: TextAlign.left,
+                ),
+                CarouselPreview(),
+                SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  'Want to play',
+                  style: TextStyle(fontSize: 20),
+                  textAlign: TextAlign.left,
+                ),
+                CarouselPreview(),
+                Spacer(),
+              ],
+            ),
+          );
+        }
+
+        return const CircularProgressIndicator();
+      },
     )));
   }
 }

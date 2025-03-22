@@ -6,8 +6,6 @@ import 'package:level_up/utils/error_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthRepository {
-  // getAuthKeys
-
   static const _igdbTokenKey = 'igdbKey';
 
   Future<String> getFreshIgdbAuthToken() async {

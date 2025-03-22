@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:level_up/bloc/loading_status.dart';
+import 'package:level_up/data/models/game.dart';
 import 'package:level_up/data/repositories/games_repository.dart';
 import 'package:meta/meta.dart';
 
@@ -16,7 +17,11 @@ class GamesBloc extends Bloc<GamesEvent, GamesState> {
 
         GamesRepository gamesRepository = GamesRepository();
 
-        var games = await gamesRepository.get();
+        List<Game> games =
+            await gamesRepository.get(query: 'fields name, cover.image_id;');
+
+        // var covers = await gamesRepository.getCovers(
+        //     query: 'fields game; wherelimit 10;');
 
         emit(state.copyWith(loadingStatus: LoadingStatus.loaded, games: games));
       },
