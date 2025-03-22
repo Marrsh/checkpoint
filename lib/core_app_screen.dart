@@ -24,9 +24,6 @@ class CoreAppScreen extends StatelessWidget {
               : BottomNavigationBar(
                   onTap: (tabIndex) {
                     context.navigateTo(TabRoute.locations[tabIndex]);
-
-                    // controller.animateTo()
-                    // print(value);
                   },
                   items: const [
                     BottomNavigationBarItem(
