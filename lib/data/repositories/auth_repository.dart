@@ -14,7 +14,7 @@ class AuthRepository {
     try {
       var response = await Network().post(
           endpoint: '/token',
-          url: Network.authUrl,
+          url: 'https://id.twitch.tv/oauth2',
           params:
               '?client_id=${HiddenKey.igdbClientId}&client_secret=${HiddenKey.client_secret}&grant_type=client_credentials');
 
@@ -31,11 +31,9 @@ class AuthRepository {
     return '';
   }
 
-  setIgdbToken() async {
+  setIgdbToken({required String token}) async {
     try {
       final SharedPreferences prefs = await SharedPreferences.getInstance();
-
-      String token = await getFreshIgdbAuthToken();
 
       prefs.setString(_igdbTokenKey, token);
     } catch (e) {

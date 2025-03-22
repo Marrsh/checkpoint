@@ -13,19 +13,19 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
     on<RequestIDGBAuth>(
       (event, emit) async {
-        // emit loading state
+        emit(state.copyWith(loadingStatus: LoadingStatus.loading));
 
         AuthRepository authRepository = AuthRepository();
 
         String token = await authRepository.getIgdbToken();
 
-        if (token == '') {}
+        if (token == '') {
+          token = await authRepository.getFreshIgdbAuthToken();
+          await authRepository.setIgdbToken(token: token);
+        }
 
-        // state.copyWith
-
-        // check if token exits
-        // check validity of token
-        // fetch new token
+        emit(state.copyWith(
+            loadingStatus: LoadingStatus.loaded, igdbToken: token));
       },
     );
   }

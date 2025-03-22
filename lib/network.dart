@@ -5,7 +5,7 @@ import 'package:level_up/hidden_key.dart';
 import 'package:level_up/utils/error_handler.dart';
 
 const Map<String, String> defaultHeaders = {
-  'Accept': 'application/json',
+  // 'Accept': 'application/json',
   'Client-ID': HiddenKey.igdbClientId,
   // 'Authorization': Bearer ...
 };
@@ -41,9 +41,9 @@ class Network {
         headers.addAll(defaultHeaders);
       }
 
-      String token = await AuthRepository().getFreshIgdbAuthToken();
+      // String token = await AuthRepository().getFreshIgdbAuthToken();
 
-      headers.addAll({'Authorization': 'Bearer $token'});
+      // headers.addAll({'Authorization': 'Bearer $token'});
 
       var request = http.post(
         Uri.parse(
