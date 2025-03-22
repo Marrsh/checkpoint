@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:level_up/bloc/loading_status.dart';
 import 'package:level_up/data/repositories/auth_repository.dart';
 import 'package:meta/meta.dart';
 
@@ -13,6 +14,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
     on<RequestIDGBAuth>(
       (event, emit) async {
+        // add error handling
         emit(state.copyWith(loadingStatus: LoadingStatus.loading));
 
         AuthRepository authRepository = AuthRepository();

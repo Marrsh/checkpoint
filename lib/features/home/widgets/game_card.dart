@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class GameCard extends StatelessWidget {
-  const GameCard({super.key});
+  final String title;
+  const GameCard({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +27,8 @@ class GameCard extends StatelessWidget {
                       Colors.grey.withAlpha(200),
                       Colors.grey.withAlpha(50)
                     ])),
-                child: const Align(
-                    alignment: Alignment.bottomLeft, child: Text('test')),
+                child:
+                    Align(alignment: Alignment.bottomLeft, child: Text(title)),
               ),
             ),
           ],

@@ -1,7 +1,5 @@
 part of 'auth_bloc.dart';
 
-enum LoadingStatus { loading, loaded, failed, initial }
-
 @immutable
 final class AuthState {
   final LoadingStatus loadingStatus;
@@ -10,7 +8,7 @@ final class AuthState {
       {this.loadingStatus = LoadingStatus.initial, this.igdbToken = ''});
 
 //  @override
-  // List<Object> get props => [loadingStatus ];
+  // List<Object> get props => [loadingStatus ]; // not sure what this does but it's all over the flutter docs
 
   AuthState copyWith({LoadingStatus? loadingStatus, String? igdbToken}) {
     return AuthState(

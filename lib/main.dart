@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:level_up/bloc/auth/auth_bloc.dart';
+import 'package:level_up/bloc/games/games_bloc.dart';
 import 'package:level_up/routing/router.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
-  runApp(MultiBlocProvider(
-      providers: [BlocProvider(create: (context) => AuthBloc())],
-      child: MyApp()));
+  runApp(MultiBlocProvider(providers: [
+    BlocProvider(create: (context) => AuthBloc()),
+    BlocProvider(create: (context) => GamesBloc())
+  ], child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
