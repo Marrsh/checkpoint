@@ -24,7 +24,7 @@ These are the main 3 folders we will be using:
 ***Features*** (presentation layer) are purely for UI screens and widgets 
 
 
-
+```
 lib
   ├── data
   │   ├── models
@@ -43,3 +43,4 @@ lib
           └── widgets
           └── preview_card.dart
 
+```

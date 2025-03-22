@@ -1,35 +1,63 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:level_up/api_key.dart';
-
-const baseUrl = "https://api.rawg.io/api";
+import 'package:level_up/data/repositories/auth_repository.dart';
+import 'package:level_up/hidden_key.dart';
+import 'package:level_up/utils/error_handler.dart';
 
 const Map<String, String> defaultHeaders = {
   'Accept': 'application/json',
-  'key': rawGKey,
+  'Client-ID': HiddenKey.igdbClientId,
+  // 'Authorization': Bearer ...
 };
 
 class Network {
+  static const baseUrl = "https://api.igdb.com/v4/";
+  static const authUrl = 'https://id.twitch.tv/oauth2/token?';
+
   final Map<String, String> headers;
 
-  Network({
-    this.headers = defaultHeaders,
-  });
+  Network({this.headers = defaultHeaders});
 
   get({required String endpoint}) async {
-    var request = http.get(Uri.parse(baseUrl + endpoint), headers: headers);
+    // TODO add headers
+    try {
+      var request = http.get(Uri.parse(baseUrl + endpoint), headers: headers);
+      http.Response response = await request;
+      debugPrint(response.body);
 
-    return requestHandler(request);
+      return response;
+    } catch (e) {
+      ErrorHandler.log(error: e.toString());
+    }
   }
 
-  requestHandler(request) async {
-    late http.Response response;
+  post(
+      {String? jsonBody,
+      required String endpoint,
+      url = baseUrl,
+      String params = ''}) async {
+    try {
+      if (headers != defaultHeaders) {
+        headers.addAll(defaultHeaders);
+      }
 
-    response = await request;
+      String token = await AuthRepository().getFreshIgdbAuthToken();
 
-    debugPrint(response.body);
+      headers.addAll({'Authorization': 'Bearer $token'});
 
-    return response;
+      var request = http.post(
+        Uri.parse(
+          url + endpoint + params,
+        ),
+        headers: headers,
+        body: jsonBody,
+      );
+      http.Response response = await request;
+      debugPrint(response.body);
+
+      return response;
+    } catch (e) {
+      ErrorHandler.log(error: e.toString());
+    }
   }
 }

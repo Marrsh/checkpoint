@@ -1,10 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:level_up/api_key.dart';
 import 'package:level_up/constants/styles.dart';
-import 'package:level_up/features/home/presentation/widgets/carousel_preview.dart';
-import 'package:level_up/network.dart';
+import 'package:level_up/data/repositories/auth_repository.dart';
+import 'package:level_up/features/home/widgets/carousel_preview.dart';
 
 @RoutePage()
 class HomeScreen extends StatefulWidget {
@@ -15,23 +13,14 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  dynamic someGames = [];
-
-  grabSomeGames() async {
-    var games = await Network().get(endpoint: '/games?key=$rawGKey');
-
-    print(games);
-  }
-
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
+    AuthRepository().setIgdbToken();
   }
 
   @override
   Widget build(BuildContext context) {
-    grabSomeGames();
     return const Scaffold(
         body: SafeArea(
       child: Padding(
