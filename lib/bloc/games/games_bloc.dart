@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
-import 'package:level_up/bloc/loading_status.dart';
-import 'package:level_up/data/models/game.dart';
-import 'package:level_up/data/repositories/games_repository.dart';
+import 'package:checkpoint/bloc/loading_status.dart';
+import 'package:checkpoint/data/models/game.dart';
+import 'package:checkpoint/data/repositories/games_repository.dart';
 import 'package:meta/meta.dart';
 
 part 'games_event.dart';

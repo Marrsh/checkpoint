@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:level_up/bloc/games/games_bloc.dart';
-import 'package:level_up/bloc/loading_status.dart';
-import 'package:level_up/features/home/widgets/game_card.dart';
+import 'package:checkpoint/bloc/games/games_bloc.dart';
+import 'package:checkpoint/bloc/loading_status.dart';
+import 'package:checkpoint/features/home/widgets/game_card.dart';
 
 class CarouselPreview extends StatefulWidget {
   final double? cardSpacing;

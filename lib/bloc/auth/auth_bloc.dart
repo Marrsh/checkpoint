@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:level_up/bloc/loading_status.dart';
-import 'package:level_up/data/repositories/auth_repository.dart';
+import 'package:checkpoint/bloc/loading_status.dart';
+import 'package:checkpoint/data/repositories/auth_repository.dart';
 import 'package:meta/meta.dart';
 
 part 'auth_event.dart';

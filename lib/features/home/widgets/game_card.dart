@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:level_up/data/models/game.dart';
+import 'package:checkpoint/data/models/game.dart';
 
 class GameCard extends StatelessWidget {
   final Game game;
@@ -8,18 +8,16 @@ class GameCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ConstrainedBox(
-        constraints: const BoxConstraints(maxHeight: 200, maxWidth: 130),
+        constraints: const BoxConstraints(maxHeight: 180, maxWidth: 120),
         child: Stack(
           children: [
-            // Container(
-            //   color: Colors.green,
-            // ),
             Image.network(
                 'https://images.igdb.com/igdb/image/upload/t_cover_big/${game.imageId}.jpg'),
             Align(
               alignment: Alignment.bottomLeft,
               child: Container(
-                height: 60,
+                // display on tap?
+                height: 70,
                 padding: const EdgeInsets.all(5),
                 width: const BoxConstraints().maxWidth,
                 color: Colors.amber,

@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:level_up/routing/tab_route.dart';
+import 'package:checkpoint/routing/tab_route.dart';
 
 @RoutePage()
 class CoreAppScreen extends StatelessWidget {

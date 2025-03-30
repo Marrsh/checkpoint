@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-import 'package:level_up/hidden_key.dart';
-import 'package:level_up/network.dart';
-import 'package:level_up/utils/error_handler.dart';
+import 'package:checkpoint/hidden_key.dart';
+import 'package:checkpoint/network.dart';
+import 'package:checkpoint/utils/error_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthRepository {

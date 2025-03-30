@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:level_up/hidden_key.dart';
-import 'package:level_up/utils/error_handler.dart';
+import 'package:checkpoint/hidden_key.dart';
+import 'package:checkpoint/utils/error_handler.dart';
 
 const Map<String, String> defaultHeaders = {
   'Client-ID': HiddenKey.igdbClientId,

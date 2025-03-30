@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:level_up/routing/router.gr.dart';
+import 'package:checkpoint/routing/router.gr.dart';
 
 @AutoRouterConfig()
 class AppRouter extends RootStackRouter {

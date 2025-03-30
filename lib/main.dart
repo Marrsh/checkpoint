@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:level_up/bloc/auth/auth_bloc.dart';
-import 'package:level_up/bloc/games/games_bloc.dart';
-import 'package:level_up/routing/router.dart';
+import 'package:checkpoint/bloc/auth/auth_bloc.dart';
+import 'package:checkpoint/bloc/games/games_bloc.dart';
+import 'package:checkpoint/routing/router.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 

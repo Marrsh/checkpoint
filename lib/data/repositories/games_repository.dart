@@ -1,9 +1,9 @@
 import 'dart:convert';
 
-import 'package:level_up/data/models/game.dart';
-import 'package:level_up/data/repositories/auth_repository.dart';
-import 'package:level_up/network.dart';
-import 'package:level_up/utils/error_handler.dart';
+import 'package:checkpoint/data/models/game.dart';
+import 'package:checkpoint/data/repositories/auth_repository.dart';
+import 'package:checkpoint/network.dart';
+import 'package:checkpoint/utils/error_handler.dart';
 
 class GamesRepository {
   get({required String query}) async {

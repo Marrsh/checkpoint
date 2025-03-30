@@ -9,11 +9,11 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i6;
-import 'package:level_up/core_app_screen.dart' as _i1;
-import 'package:level_up/features/home/screens/home_screen.dart' as _i2;
-import 'package:level_up/features/search/screens/search_screen.dart' as _i4;
-import 'package:level_up/routing/tabs/home_tab.dart' as _i3;
-import 'package:level_up/routing/tabs/search_tab.dart' as _i5;
+import 'package:checkpoint/core_app_screen.dart' as _i1;
+import 'package:checkpoint/features/home/screens/home_screen.dart' as _i2;
+import 'package:checkpoint/features/search/screens/search_screen.dart' as _i4;
+import 'package:checkpoint/routing/tabs/home_tab.dart' as _i3;
+import 'package:checkpoint/routing/tabs/search_tab.dart' as _i5;
 
 /// generated route for
 /// [_i1.CoreAppScreen]

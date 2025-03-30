@@ -1,12 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:level_up/bloc/auth/auth_bloc.dart';
-import 'package:level_up/bloc/games/games_bloc.dart';
-import 'package:level_up/bloc/loading_status.dart';
-import 'package:level_up/constants/styles.dart';
-import 'package:level_up/data/repositories/auth_repository.dart';
-import 'package:level_up/features/home/widgets/carousel_preview.dart';
+import 'package:checkpoint/bloc/auth/auth_bloc.dart';
+import 'package:checkpoint/bloc/loading_status.dart';
+import 'package:checkpoint/constants/styles.dart';
+import 'package:checkpoint/features/home/widgets/carousel_preview.dart';
 
 @RoutePage()
 class HomeScreen extends StatefulWidget {
@@ -39,32 +37,46 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 Center(
                   child: Text(
-                    'Level up',
+                    'Checkpoint',
                     style: TextStyle(fontSize: 24),
                   ),
                 ),
-                Text(
-                  'Featured',
-                  style: TextStyle(fontSize: 20),
-                  textAlign: TextAlign.left,
-                ),
-                CarouselPreview(),
-                SizedBox(
-                  height: 10,
-                ),
-                Text(
-                  'Want to play',
-                  style: TextStyle(fontSize: 20),
-                  textAlign: TextAlign.left,
-                ),
-                CarouselPreview(),
-                Spacer(),
+                Expanded(
+                  child: CustomScrollView(
+                    slivers: [
+                      SliverToBoxAdapter(
+                        child: Text(
+                          'Popular this week', // check if there is an API for game popularity? OR do it based on review frequency
+                          style: TextStyle(fontSize: 20),
+                          textAlign: TextAlign.left,
+                        ),
+                      ),
+                      SliverToBoxAdapter(child: CarouselPreview()),
+                      SliverToBoxAdapter(
+                        child: Text(
+                          'Friend Activity', // check if there is an API for game popularity? OR do it based on review frequency
+                          style: TextStyle(fontSize: 20),
+                          textAlign: TextAlign.left,
+                        ),
+                      ),
+                      SliverToBoxAdapter(child: CarouselPreview()),
+                      SliverToBoxAdapter(
+                        child: Text(
+                          'Want to play', // check if there is an API for game popularity? OR do it based on review frequency
+                          style: TextStyle(fontSize: 20),
+                          textAlign: TextAlign.left,
+                        ),
+                      ),
+                      SliverToBoxAdapter(child: CarouselPreview()),
+                    ],
+                  ),
+                )
               ],
             ),
           );
         }
 
-        return const CircularProgressIndicator();
+        return const Center(child: CircularProgressIndicator());
       },
     )));
   }
