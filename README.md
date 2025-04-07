@@ -1,28 +1,25 @@
-# level_up
+# Checkpoint
 
 A new Flutter project.
 
 ## Getting Started
 
-
 installation instructions here
-``` 
+
+```
 flutter pub get
 
 ```
-
-
 
 ## File structure
 
 These are the main 3 folders we will be using:
 
-***Data*** (domain/data layer) is for models and repositories
+**_Data_** (domain/data layer) is for models and repositories
 
-***Bloc*** is for storing bloc operations at the very top level
+**_Bloc_** is for storing bloc operations at the very top level
 
-***Features*** (presentation layer) are purely for UI screens and widgets 
-
+**_Features_** (presentation layer) are purely for UI screens and widgets
 
 ```
 lib
